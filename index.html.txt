@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>關西旅行手冊 · 12/17-12/24</title>
+
+<style>
+
+:root {
+
+&#x20; --bg: #f8f6f1; --bg-card: #ffffff; --bg-card-alt: #f0ede6;
+
+&#x20; --text: #2c2c2c; --text-muted: #888; --text-light: #aaa;
+
+&#x20; --accent: #d4731a; --accent-light: #f5e6d3; --border: #e0ddd5;
+
+&#x20; --shadow: 0 2px 12px rgba(0,0,0,0.06); --shadow-lg: 0 4px 24px rgba(0,0,0,0.10);
+
+&#x20; --map-bg: #f5f2eb;
+
+&#x20; --route-d1: #4A90D9; --route-d2: #7BAA50; --route-d3: #2BA8A0; --route-d4: #E8923C;
+
+&#x20; --route-d5: #D9534F; --route-d6: #9B59B6; --route-d7: #E91E63; --route-d8: #78909C;
+
+}
+
+body.night {
+
+&#x20; --bg: #1a1c2e; --bg-card: #252840; --bg-card-alt: #2d3050;
+
+&#x20; --text: #e8e6e0; --text-muted: #8888aa; --text-light: #666688;
+
+&#x20; --accent: #f0a050; --accent-light: #3a2a1a; --border: #3a3d5c;
+
+&#x20; --shadow: 0 2px 12px rgba(0,0,0,0.3); --shadow-lg: 0 4px 24px rgba(0,0,0,0.4);
+
+&#x20; --map-bg: #252840;
+
+}
+
+\* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; transition: background 0.5s, color 0.5s; -webkit-tap-highlight-color: transparent; }
+
+.container { max-width: 680px; margin: 0 auto; padding: 0 16px 80px; }
+
+header { text-align: center; padding: 32px 16px 16px; }
+
+header h1 { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.05em; }
+
+header .subtitle { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+
+header .trip-meta { display: flex; justify-content: center; gap: 16px; margin-top: 12px; font-size: 0.8rem; color: var(--text-muted); }
+
+header .trip-meta span { display: flex; align-items: center; gap: 4px; }
+
+.theme-badge { position: fixed; top: 12px; right: 12px; font-size: 0.7rem; padding: 4px 10px; border-radius: 20px; background: var(--bg-card); border: 1px solid var(--border); color: var(--text-muted); z-index: 100; box-shadow: var(--shadow); }
+
+section { margin-top: 28px; }
+
+section > h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 12px; padding-left: 12px; border-left: 4px solid var(--accent); }
+
+.countdown-card { background: linear-gradient(135deg, var(--accent), #c45c0e); color: #fff; border-radius: 20px; padding: 24px 20px; box-shadow: var(--shadow-lg); text-align: center; }
+
+body.night .countdown-card { background: linear-gradient(135deg, #f0a050, #d4731a); }
+
+.countdown-card .label { font-size: 0.8rem; opacity: 0.85; letter-spacing: 0.1em; }
+
+.countdown-card .event-title { font-size: 1.15rem; font-weight: 700; margin: 8px 0 16px; }
+
+.countdown-card .timer { display: flex; justify-content: center; gap: 12px; }
+
+.countdown-card .timer-unit { text-align: center; }
+
+.countdown-card .timer-num { font-size: 2.2rem; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; min-width: 56px; }
+
+.countdown-card .timer-label { font-size: 0.65rem; opacity: 0.8; margin-top: 4px; letter-spacing: 0.1em; }
+
+.countdown-card .event-time { font-size: 0.75rem; opacity: 0.7; margin-top: 14px; }
+
+.countdown-card.done .timer-num { font-size: 1.4rem; }
+
+.map-card { background: var(--bg-card); border-radius: 16px; padding: 16px; box-shadow: var(--shadow); overflow-x: auto; }
+
+.map-card svg { width: 100%; height: auto; display: block; }
+
+.map-legend { display: flex; flex-wrap: wrap; gap: 8px 12px; margin-top: 12px; font-size: 0.72rem; color: var(--text-muted); }
+
+.map-legend span { display: flex; align-items: center; gap: 4px; }
+
+.map-legend .dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+.booking-group { margin-bottom: 16px; }
+
+.booking-group > h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; color: var(--text-muted); }
+
+.booking-item { background: var(--bg-card); border-radius: 12px; padding: 14px 16px; margin-bottom: 8px; box-shadow: var(--shadow); border-left: 3px solid var(--border); }
+
+.booking-item.flight { border-left-color: var(--route-d1); }
+
+.booking-item.hotel { border-left-color: var(--route-d2); }
+
+.booking-item.ticket { border-left-color: var(--route-d6); }
+
+.booking-item .b-title { font-weight: 600; font-size: 0.95rem; }
+
+.booking-item .b-row { font-size: 0.82rem; color: var(--text-muted); margin-top: 4px; display: flex; align-items: flex-start; gap: 6px; }
+
+.booking-item .b-row .icon { flex-shrink: 0; opacity: 0.6; }
+
+.booking-item .pending { display: inline-block; font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; background: var(--accent-light); color: var(--accent); margin-left: 8px; vertical-align: middle; }
+
+.day-card { background: var(--bg-card); border-radius: 16px; margin-bottom: 12px; box-shadow: var(--shadow); overflow: hidden; }
+
+.day-header { padding: 14px 16px; cursor: pointer; display: flex; align-items: center; gap: 12px; transition: background 0.2s; }
+
+.day-header:active { background: var(--bg-card-alt); }
+
+.day-badge { width: 44px; height: 44px; border-radius: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #fff; font-weight: 700; flex-shrink: 0; }
+
+.day-badge .d-num { font-size: 1.1rem; line-height: 1; }
+
+.day-badge .d-date { font-size: 0.6rem; opacity: 0.85; margin-top: 2px; }
+
+.day-info { flex: 1; }
+
+.day-info .d-title { font-weight: 600; font-size: 0.95rem; }
+
+.day-info .d-sub { font-size: 0.75rem; color: var(--text-muted); }
+
+.day-expand-icon { font-size: 0.7rem; color: var(--text-light); transition: transform 0.3s; }
+
+.day-card.open .day-expand-icon { transform: rotate(180deg); }
+
+.day-body { display: none; padding: 0 16px 16px; }
+
+.day-card.open .day-body { display: block; }
+
+.day-map-toggle { width: 100%; padding: 8px; margin-bottom: 12px; border: 1px dashed var(--border); border-radius: 10px; background: var(--bg-card-alt); color: var(--text-muted); font-size: 0.8rem; text-align: center; cursor: pointer; }
+
+.day-map-toggle:active { background: var(--accent-light); }
+
+.day-route-map { display: none; margin-bottom: 12px; border-radius: 10px; overflow: hidden; }
+
+.day-route-map.show { display: block; }
+
+.day-route-map iframe { width: 100%; height: 220px; border: 0; }
+
+.day-nav-btn { display: block; width: 100%; padding: 10px; margin-bottom: 12px; border: none; border-radius: 10px; background: var(--accent); color: #fff; font-size: 0.85rem; font-weight: 600; text-align: center; cursor: pointer; text-decoration: none; }
+
+.day-nav-btn:active { opacity: 0.85; }
+
+.timeline { position: relative; padding-left: 56px; }
+
+.timeline::before { content: ''; position: absolute; left: 50px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+
+.tl-item { position: relative; padding-bottom: 16px; }
+
+.tl-item:last-child { padding-bottom: 0; }
+
+.tl-time { position: absolute; left: -56px; top: 0; width: 46px; text-align: right; font-size: 0.78rem; font-weight: 600; color: var(--text-muted); font-variant-numeric: tabular
+
+
+
